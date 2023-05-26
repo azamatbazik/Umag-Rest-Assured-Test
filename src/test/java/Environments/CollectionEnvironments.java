@@ -1,5 +1,6 @@
 package Environments;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.sun.org.apache.xpath.internal.objects.XString;
 
 public class CollectionEnvironments {
@@ -10,6 +11,33 @@ public class CollectionEnvironments {
     private Integer supplyPaymentScoreId;
     private Integer supplierId;
     private String supplierName;
+    private Object dataOfProduct;
+    private Object dataOfCategory;
+    private Object dataOfSubCategory;
+
+    public Object getDataOfSubCategory() {
+        return dataOfSubCategory;
+    }
+
+    public void setDataOfSubCategory(Object dataOfSubCategory) {
+        this.dataOfSubCategory = dataOfSubCategory;
+    }
+
+    public Object getDataOfCategory() {
+        return dataOfCategory;
+    }
+
+    public void setDataOfCategory(Object dataOfCategory) {
+        this.dataOfCategory = dataOfCategory;
+    }
+
+    public Object getDataOfProduct() {
+        return dataOfProduct;
+    }
+
+    public void setDataOfProduct(Object dataOfProduct) {
+        this.dataOfProduct = dataOfProduct;
+    }
 
     public Integer getSupplierId() {
         return supplierId;
