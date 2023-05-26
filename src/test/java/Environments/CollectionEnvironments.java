@@ -14,6 +14,42 @@ public class CollectionEnvironments {
     private Object dataOfProduct;
     private Object dataOfCategory;
     private Object dataOfSubCategory;
+    private Long supplyProductId;
+    private Double supplyArrivalCostProductPrise;
+    private Double supplySellingPriceProductPrise;
+    private Double supplyWholesalePriceProductPrice;
+
+    public Long getSupplyProductId() {
+        return supplyProductId;
+    }
+
+    public void setSupplyProductId(Long supplyProductId) {
+        this.supplyProductId = supplyProductId;
+    }
+
+    public Double getSupplyArrivalCostProductPrise() {
+        return supplyArrivalCostProductPrise;
+    }
+
+    public void setSupplyArrivalCostProductPrise(Double supplyArrivalCostProductPrise) {
+        this.supplyArrivalCostProductPrise = supplyArrivalCostProductPrise;
+    }
+
+    public Double getSupplySellingPriceProductPrise() {
+        return supplySellingPriceProductPrise;
+    }
+
+    public void setSupplySellingPriceProductPrise(Double supplySellingPriceProductPrise) {
+        this.supplySellingPriceProductPrise = supplySellingPriceProductPrise;
+    }
+
+    public Double getSupplyWholesalePriceProductPrice() {
+        return supplyWholesalePriceProductPrice;
+    }
+
+    public void setSupplyWholesalePriceProductPrice(Double supplyWholesalePriceProductPrice) {
+        this.supplyWholesalePriceProductPrice = supplyWholesalePriceProductPrice;
+    }
 
     public Object getDataOfSubCategory() {
         return dataOfSubCategory;

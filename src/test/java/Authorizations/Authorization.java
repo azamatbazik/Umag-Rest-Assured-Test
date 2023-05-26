@@ -36,6 +36,7 @@ public class Authorization extends GlobalEnvironments{
         authorizationList();
         listProduct();
         productDataNotPrice();
+        productDataWithPrice();
     }
 
     @Test

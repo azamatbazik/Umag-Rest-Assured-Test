@@ -80,6 +80,7 @@ public class FirstCase {
             collectionEnvironments.setDataOfCategory(category);
             Object subCategory = jsonPath.get("subCategory");
             collectionEnvironments.setDataOfSubCategory(subCategory);
+
         }else{
             collectionEnvironments.setDataOfCategory(null);
         }
