@@ -11,9 +11,9 @@ import java.util.List;
 import static constructorFile.getRequest.getData;
 import static io.restassured.RestAssured.given;
 
-public class FirstCase {
-    static CollectionEnvironments collectionEnvironments = new CollectionEnvironments();
-    static Integer storeId = Authorization.globalEnvironments.getStoreId();
+public class listRequest {
+    public static CollectionEnvironments collectionEnvironments = new CollectionEnvironments();
+    public static Integer storeId = Authorization.globalEnvironments.getStoreId();
     static long isoTimestampNow = System.currentTimeMillis();
 
     @Test
@@ -38,7 +38,7 @@ public class FirstCase {
 
         JsonPath jsonPath = getData(("/rest/cabinet/org/store/configs?storeId=" + storeId)).jsonPath();
         Long maxDayDiff = jsonPath.get("maxDayDiff");
-        long incorrectMaxDayDiff = (maxDayDiff + 1) * 86400000;
+        long incorrectMaxDayDiff = Long.parseLong(String.valueOf(maxDayDiff + 1)) * 86400000;
         collectionEnvironments.setIncorrectMaxDayDiff(isoTimestampNow - incorrectMaxDayDiff);
     }
 
@@ -69,6 +69,8 @@ public class FirstCase {
     public static void productDataNotPrice() {
         JsonPath jsonPath = getData(("/rest/cabinet/nom/product/findProductByBarcode?showServices=false&showPackages=false&showDeleted=true&barcode=" + collectionEnvironments.getBarcode() + "&create=true&storeId=" + storeId)).jsonPath();
         Object object = jsonPath.get("product");
+        float stockQuantity = jsonPath.get("stockQuantity");
+        collectionEnvironments.setStockQuantity(stockQuantity);
         collectionEnvironments.setDataOfProduct(object);
     }
 
@@ -76,14 +78,42 @@ public class FirstCase {
     public static void productDataWithPrice() {
         JsonPath jsonPath = getData(("/rest/cabinet/nom/product/" + collectionEnvironments.getBarcode() + "?storeId=" + storeId)).jsonPath();
         Object category = jsonPath.get("category");
-        if(category != null){
+        if (category != null) {
             collectionEnvironments.setDataOfCategory(category);
             Object subCategory = jsonPath.get("subCategory");
             collectionEnvironments.setDataOfSubCategory(subCategory);
 
-        }else{
+        } else {
             collectionEnvironments.setDataOfCategory(null);
         }
+        collectionEnvironments.setSupplyProductId(jsonPath.get("productInfo.id"));
+        collectionEnvironments.setSupplyArrivalCostProductPrise(jsonPath.get("productPrice.arrivalCost"));
+        collectionEnvironments.setSupplySellingPriceProductPrise(jsonPath.get("productPrice.sellingPrice"));
+        collectionEnvironments.setSupplyWholesalePriceProductPrice(jsonPath.get("productPrice.wholesalePrice"));
 
+        float supplyArrivalCostProduct = (jsonPath.get("productPrice.arrivalCost"));
+        float supplySellingPriceProduct = (jsonPath.get("productPrice.sellingPrice"));
+
+        float amountMarkup = supplySellingPriceProduct - supplyArrivalCostProduct;
+        float onePercent = supplyArrivalCostProduct / 100;
+        float percentMarkup = Float.parseFloat(String.valueOf(amountMarkup / onePercent));
+        collectionEnvironments.setPercentMarkup(percentMarkup);
+
+        int quantityProduct = 1;
+        collectionEnvironments.setQuantityProduct(quantityProduct);
+
+        Float supplyAmount = supplyArrivalCostProduct*quantityProduct;
+        collectionEnvironments.setSupplyAmount(supplyAmount);
+
+        int newQuantityProduct = 10;
+        float newSupplyArrivalCostProduct = supplyArrivalCostProduct + 10;
+        float supplySumMarkup = (newSupplyArrivalCostProduct/100)*percentMarkup;
+        float newSupplySellingPriceProduct = newSupplyArrivalCostProduct+supplySumMarkup;
+        float newSupplyAmount = newSupplyArrivalCostProduct*newQuantityProduct;
+
+        collectionEnvironments.setNewQuantityProduct(newQuantityProduct);
+        collectionEnvironments.setNewSupplyAmount(newSupplyAmount);
+        collectionEnvironments.setNewSupplyArrivalCostProduct(newSupplyArrivalCostProduct);
+        collectionEnvironments.setNewSupplySellingPriceProduct(newSupplySellingPriceProduct);
     }
 }

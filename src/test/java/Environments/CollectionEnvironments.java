@@ -1,8 +1,5 @@
 package Environments;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.sun.org.apache.xpath.internal.objects.XString;
-
 public class CollectionEnvironments {
     private Long barcode;
     private Long incorrectRevisionDate;
@@ -12,43 +9,115 @@ public class CollectionEnvironments {
     private Integer supplierId;
     private String supplierName;
     private Object dataOfProduct;
+    private Float stockQuantity;
     private Object dataOfCategory;
     private Object dataOfSubCategory;
-    private Long supplyProductId;
-    private Double supplyArrivalCostProductPrise;
-    private Double supplySellingPriceProductPrise;
-    private Double supplyWholesalePriceProductPrice;
+    private Integer supplyProductId;
+    private Float supplyArrivalCostProductPrise;
+    private Float supplySellingPriceProductPrise;
+    private Float supplyWholesalePriceProductPrice;
+    private Float percentMarkup;
+    private Integer quantityProduct;
+    private Float supplyAmount;
+    private Integer newQuantityProduct;
+    private Float newSupplyAmount;
+    private Float newSupplyArrivalCostProduct;
+    private Float newSupplySellingPriceProduct;
 
-    public Long getSupplyProductId() {
-        return supplyProductId;
+    public Float getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setSupplyProductId(Long supplyProductId) {
-        this.supplyProductId = supplyProductId;
+    public void setStockQuantity(Float stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
-    public Double getSupplyArrivalCostProductPrise() {
+    public Float getNewSupplySellingPriceProduct() {
+        return newSupplySellingPriceProduct;
+    }
+
+    public void setNewSupplySellingPriceProduct(Float newSupplySellingPriceProduct) {
+        this.newSupplySellingPriceProduct = newSupplySellingPriceProduct;
+    }
+
+    public Float getSupplyArrivalCostProductPrise() {
         return supplyArrivalCostProductPrise;
     }
 
-    public void setSupplyArrivalCostProductPrise(Double supplyArrivalCostProductPrise) {
+    public void setSupplyArrivalCostProductPrise(Float supplyArrivalCostProductPrise) {
         this.supplyArrivalCostProductPrise = supplyArrivalCostProductPrise;
     }
 
-    public Double getSupplySellingPriceProductPrise() {
+    public Float getSupplySellingPriceProductPrise() {
         return supplySellingPriceProductPrise;
     }
 
-    public void setSupplySellingPriceProductPrise(Double supplySellingPriceProductPrise) {
+    public void setSupplySellingPriceProductPrise(Float supplySellingPriceProductPrise) {
         this.supplySellingPriceProductPrise = supplySellingPriceProductPrise;
     }
 
-    public Double getSupplyWholesalePriceProductPrice() {
+    public Float getSupplyWholesalePriceProductPrice() {
         return supplyWholesalePriceProductPrice;
     }
 
-    public void setSupplyWholesalePriceProductPrice(Double supplyWholesalePriceProductPrice) {
+    public void setSupplyWholesalePriceProductPrice(Float supplyWholesalePriceProductPrice) {
         this.supplyWholesalePriceProductPrice = supplyWholesalePriceProductPrice;
+    }
+
+    public Integer getQuantityProduct() {
+        return quantityProduct;
+    }
+
+    public void setQuantityProduct(Integer quantityProduct) {
+        this.quantityProduct = quantityProduct;
+    }
+
+    public Float getSupplyAmount() {
+        return supplyAmount;
+    }
+
+    public void setSupplyAmount(Float supplyAmount) {
+        this.supplyAmount = supplyAmount;
+    }
+
+    public Integer getNewQuantityProduct() {
+        return newQuantityProduct;
+    }
+
+    public void setNewQuantityProduct(Integer newQuantityProduct) {
+        this.newQuantityProduct = newQuantityProduct;
+    }
+
+    public Float getNewSupplyAmount() {
+        return newSupplyAmount;
+    }
+
+    public void setNewSupplyAmount(Float newSupplyAmount) {
+        this.newSupplyAmount = newSupplyAmount;
+    }
+
+    public Float getNewSupplyArrivalCostProduct() {
+        return newSupplyArrivalCostProduct;
+    }
+
+    public void setNewSupplyArrivalCostProduct(Float newSupplyArrivalCostProduct) {
+        this.newSupplyArrivalCostProduct = newSupplyArrivalCostProduct;
+    }
+
+    public Float getPercentMarkup() {
+        return percentMarkup;
+    }
+
+    public void setPercentMarkup(Float percentMarkup) {
+        this.percentMarkup = percentMarkup;
+    }
+
+    public Integer getSupplyProductId() {
+        return supplyProductId;
+    }
+
+    public void setSupplyProductId(Integer supplyProductId) {
+        this.supplyProductId = supplyProductId;
     }
 
     public Object getDataOfSubCategory() {
