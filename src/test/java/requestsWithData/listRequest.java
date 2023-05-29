@@ -37,8 +37,8 @@ public class listRequest {
     public static void settingsPermissions() {
 
         JsonPath jsonPath = getData(("/rest/cabinet/org/store/configs?storeId=" + storeId)).jsonPath();
-        Long maxDayDiff = jsonPath.get("maxDayDiff");
-        long incorrectMaxDayDiff = Long.parseLong(String.valueOf(maxDayDiff + 1)) * 86400000;
+        int maxDayDiff = jsonPath.get("maxDayDiff");
+        long incorrectMaxDayDiff = (long)((maxDayDiff + 1) *86400000);
         collectionEnvironments.setIncorrectMaxDayDiff(isoTimestampNow - incorrectMaxDayDiff);
     }
 
@@ -69,7 +69,7 @@ public class listRequest {
     public static void productDataNotPrice() {
         JsonPath jsonPath = getData(("/rest/cabinet/nom/product/findProductByBarcode?showServices=false&showPackages=false&showDeleted=true&barcode=" + collectionEnvironments.getBarcode() + "&create=true&storeId=" + storeId)).jsonPath();
         Object object = jsonPath.get("product");
-        float stockQuantity = jsonPath.get("stockQuantity");
+        int stockQuantity = (jsonPath.get("stockQuantity"));
         collectionEnvironments.setStockQuantity(stockQuantity);
         collectionEnvironments.setDataOfProduct(object);
     }

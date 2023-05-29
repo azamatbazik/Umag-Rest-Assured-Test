@@ -9,7 +9,7 @@ public class CollectionEnvironments {
     private Integer supplierId;
     private String supplierName;
     private Object dataOfProduct;
-    private Float stockQuantity;
+    private Integer stockQuantity;
     private Object dataOfCategory;
     private Object dataOfSubCategory;
     private Integer supplyProductId;
@@ -24,11 +24,11 @@ public class CollectionEnvironments {
     private Float newSupplyArrivalCostProduct;
     private Float newSupplySellingPriceProduct;
 
-    public Float getStockQuantity() {
+    public Integer getStockQuantity() {
         return stockQuantity;
     }
 
-    public void setStockQuantity(Float stockQuantity) {
+    public void setStockQuantity(Integer stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
 

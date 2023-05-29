@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 
+import static casesOfRequests.time.currentDate;
 import static constructorFile.getRequest.getAuthData;
 import static constructorFile.getRequest.getData;
 import static io.restassured.RestAssured.given;
@@ -32,14 +33,7 @@ public class Authorization extends GlobalEnvironments{
         globalEnvironments.setBasic_auth(globalEnvironments.getUser_login_pass());
         authorizationSignin();
         authorizationList();
-//        listProduct();
-//        listRevisions();
-        settingsPermissions();
-//        userData();
-//        accountDetails();
-//        supplierList();
-//        productDataNotPrice();
-//        productDataWithPrice();
+        currentDate();
     }
 
     @Test
